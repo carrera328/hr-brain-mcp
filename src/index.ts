@@ -73,14 +73,14 @@ Available tools are prefixed with hr_ to distinguish from other MCP servers.${co
 // ---------------------------------------------------------------------------
 
 async function createServer(env: Env): Promise<McpServer> {
+  // Build dynamic instructions from current DB state
+  const instructions = await buildInstructions(env.DB);
+
   const server = new McpServer({
     name: "hr-brain-mcp-server",
     version: "1.0.0",
+    instructions,
   });
-
-  // Set dynamic instructions based on current DB state
-  const instructions = await buildInstructions(env.DB);
-  server.setInstructions(instructions);
 
   // HR-specific tools
   registerDashboardTool(server, env.DB);
