@@ -1,0 +1,9 @@
+name = "hr-brain-mcp"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hr-brain-db"
+database_id = "027d784f-3f15-42d7-beba-0c5253f01a25"
